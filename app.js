@@ -34,6 +34,39 @@
     fbq('track', 'ViewContent', { content_name: C.produto, value: parseFloat(C.preco.replace(',', '.')), currency: 'BRL' });
   }
 
+  // Valor riscado dos bônus
+  if (C.precoBonus) document.querySelectorAll('[data-bonus-de]').forEach(function (s) { s.textContent = 'R$ ' + C.precoBonus; });
+
+  // Cronômetro: só liga se o config mandar
+  if (C.contador) {
+    document.querySelector('.topo__com-contador').hidden = false;
+    document.querySelector('.topo__sem-contador').hidden = true;
+    document.querySelector('.contador').hidden = false;
+    document.querySelector('.oferta__aviso').hidden = false;
+    var CHAVE = 'spFimOferta';
+    var fim;
+    try { fim = parseInt(localStorage.getItem(CHAVE), 10); } catch (e) {}
+    if (!fim || fim < Date.now()) { fim = Date.now() + 15 * 60 * 1000; try { localStorage.setItem(CHAVE, fim); } catch (e) {} }
+    var dois = function (n) { return (n < 10 ? '0' : '') + n; };
+    var tique = function () {
+      var r = Math.max(0, Math.round((fim - Date.now()) / 1000));
+      var m = dois(Math.floor(r / 60)), s = dois(r % 60);
+      document.querySelectorAll('[data-contador]').forEach(function (el) { el.textContent = m + ':' + s; });
+      document.querySelectorAll('[data-min]').forEach(function (el) { el.textContent = m; });
+      document.querySelectorAll('[data-seg]').forEach(function (el) { el.textContent = s; });
+    };
+    tique();
+    setInterval(tique, 1000);
+  }
+
+  // Setas do carrossel de depoimentos
+  var trilho = document.querySelector('.depo__trilho');
+  document.querySelectorAll('.depo__seta').forEach(function (b) {
+    b.addEventListener('click', function () {
+      trilho.scrollBy({ left: (b.classList.contains('depo__seta--esq') ? -1 : 1) * trilho.clientWidth * 0.85, behavior: 'smooth' });
+    });
+  });
+
   // Lista de dores: marcar e desmarcar
   document.querySelectorAll('.dor').forEach(function (b) {
     b.addEventListener('click', function () { b.classList.toggle('marcada'); });
