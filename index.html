@@ -15,6 +15,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Kalam:wght@700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="config.js"></script>
+
+<!-- Utmify 1: captura de UTMs (repassa para os links do checkout) -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+<!-- Utmify 2: pixel. O ID vem do config.js; carrega depois da página para não atrasar a primeira tela -->
+<script>
+(function () {
+  var C = window.SP_CONFIG || {};
+  if (!C.utmifyPixelId) return;
+  window.pixelId = C.utmifyPixelId;
+  function carregar() {
+    var s = document.createElement('script');
+    s.async = true; s.defer = true;
+    s.src = 'https://cdn.utmify.com.br/scripts/pixel/pixel.js';
+    document.head.appendChild(s);
+  }
+  if (document.readyState === 'complete') carregar(); else window.addEventListener('load', carregar);
+})();
+</script>
 </head>
 <body>
 
