@@ -19,20 +19,9 @@
     return url.toString();
   }
 
-  document.querySelectorAll('[data-cta]').forEach(function (a) {
-    a.href = linkCheckout();
-    a.addEventListener('click', function () {
-      if (C.checkoutUrl && window.fbq && !C.utmifyPixelId) fbq('track', 'InitiateCheckout', { value: parseFloat(C.preco.replace(',', '.')), currency: 'BRL' });
-    });
-  });
-
-  // Pixel do Meta, só se tiver ID no config
-  if (C.pixelId && !C.utmifyPixelId) {
-    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', C.pixelId);
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', { content_name: C.produto, value: parseFloat(C.preco.replace(',', '.')), currency: 'BRL' });
-  }
+  // Pixel e eventos (PageView, InitiateCheckout, Purchase) ficam só com a Utmify.
+  // Nada de código do Facebook aqui, senão os eventos duplicam.
+  document.querySelectorAll('[data-cta]').forEach(function (a) { a.href = linkCheckout(); });
 
   // Valor riscado dos bônus
   if (C.precoBonus) document.querySelectorAll('[data-bonus-de]').forEach(function (s) { s.textContent = 'R$ ' + C.precoBonus; });

@@ -14,12 +14,9 @@ window.SP_CONFIG = {
   // Checkout da Yampi. Enquanto estiver vazio, os botões rolam até o preço.
   checkoutUrl: 'https://casa-pratica-digital.pay.yampi.com.br/r/8REWXWDTK0',
 
-  // Pixel da Utmify (ID que a Utmify gera ao cadastrar o pixel). Quando preenchido,
-  // a própria Utmify carrega o pixel do Meta e o pixelId abaixo é ignorado (evita evento duplicado).
+  // Pixel da Utmify (ID que a Utmify gera ao cadastrar o pixel do Meta 3376839502507312).
+  // É o ÚNICO rastreamento da página: nada de código do Facebook direto, senão duplica.
   utmifyPixelId: '',
-
-  // Pixel do Meta direto. Só é usado enquanto o utmifyPixelId estiver vazio.
-  pixelId: '3376839502507312',
 
   // Nome que aparece em "Saladas da nutricionista ...". Vazio = mostra o espaço reservado.
   especialista: '',
