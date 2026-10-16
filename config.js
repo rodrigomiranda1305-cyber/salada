@@ -9,7 +9,7 @@ window.SP_CONFIG = {
   checkoutUrl: '',
 
   // Pixel do Meta. Vazio = não carrega.
-  pixelId: '',
+  pixelId: '3376839502507312',
 
   // Contato que aparece no rodapé e nas políticas.
   email: 'contato@saladanopote.sbs',
