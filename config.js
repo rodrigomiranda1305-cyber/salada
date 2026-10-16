@@ -16,7 +16,7 @@ window.SP_CONFIG = {
 
   // Pixel da Utmify (ID que a Utmify gera ao cadastrar o pixel do Meta 3376839502507312).
   // É o ÚNICO rastreamento da página: nada de código do Facebook direto, senão duplica.
-  utmifyPixelId: '',
+  utmifyPixelId: '6ad2b54ba6f66a94aea0502c',
 
   // Nome que aparece em "Saladas da nutricionista ...". Vazio = mostra o espaço reservado.
   especialista: 'CLARISSA',
