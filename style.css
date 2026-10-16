@@ -58,6 +58,8 @@ button { font: inherit; }
 .reservado--especialista { aspect-ratio: 4/3; }
 .reservado--depo { flex: 0 0 82%; aspect-ratio: 3/4; scroll-snap-align: center; background: #fff; }
 .reservado-txt { color: #999 !important; font-style: italic; }
+.mockup { width: 100%; border-radius: 14px; margin-top: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .12); }
+.mockup--pacote { margin: 0 0 18px; }
 
 /* Barra do topo */
 .topo { background: linear-gradient(90deg, #e2733a, var(--laranja)); color: #fff; text-align: center; font-size: 13px; font-weight: 700; padding: 9px 12px; display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 40; }

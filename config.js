@@ -19,7 +19,7 @@ window.SP_CONFIG = {
   utmifyPixelId: '',
 
   // Nome que aparece em "Saladas da nutricionista ...". Vazio = mostra o espaço reservado.
-  especialista: '',
+  especialista: 'CLARISSA',
 
   // Contato que aparece no rodapé e nas políticas.
   email: 'contato@saladanopote.sbs',
