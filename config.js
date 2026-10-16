@@ -12,7 +12,7 @@ window.SP_CONFIG = {
   contador: false,
 
   // Checkout da Yampi. Enquanto estiver vazio, os botões rolam até o preço.
-  checkoutUrl: '',
+  checkoutUrl: 'https://casa-pratica-digital.pay.yampi.com.br/r/8REWXWDTK0',
 
   // Pixel da Utmify (ID que a Utmify gera ao cadastrar o pixel). Quando preenchido,
   // a própria Utmify carrega o pixel do Meta e o pixelId abaixo é ignorado (evita evento duplicado).
