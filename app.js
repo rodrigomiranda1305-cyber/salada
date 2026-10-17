@@ -19,9 +19,18 @@
     return url.toString();
   }
 
-  // Pixel e eventos (PageView, InitiateCheckout, Purchase) ficam só com a Utmify.
-  // Nada de código do Facebook aqui, senão os eventos duplicam.
-  document.querySelectorAll('[data-cta]').forEach(function (a) { a.href = linkCheckout(); });
+  // Pixel e eventos ficam só com a Utmify (nada de código do Facebook direto, senão duplica).
+  // O InitiateCheckout é disparado aqui no clique do botão, pelo fbq que o pixel da Utmify cria
+  // (igual ao site da Buttercream): a Utmify não marca IC sozinha e a Yampi não tem pixel.
+  function iniciarCheckout() {
+    if (typeof window.fbq !== 'function') return;
+    var valor = parseFloat(String(C.preco || '0').replace(',', '.')) || 0;
+    window.fbq('track', 'InitiateCheckout', { value: valor, currency: 'BRL', content_name: C.produto });
+  }
+  document.querySelectorAll('[data-cta]').forEach(function (a) {
+    a.href = linkCheckout();
+    if (C.checkoutUrl) a.addEventListener('click', iniciarCheckout);
+  });
 
   // Valor riscado dos bônus
   if (C.precoBonus) document.querySelectorAll('[data-bonus-de]').forEach(function (s) { s.textContent = 'R$ ' + C.precoBonus; });
