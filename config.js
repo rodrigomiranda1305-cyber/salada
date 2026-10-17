@@ -22,7 +22,7 @@ window.SP_CONFIG = {
   especialista: 'CLARISSA MAGNA',
 
   // Contato que aparece no rodapé e nas políticas.
-  email: 'contato@saladanopote.sbs',
+  email: 'contatosalada@gmail.com',
   empresa: 'Saladas no Pote',
   cnpj: '',
 };
